@@ -132,7 +132,7 @@ ReadLineStatus ReadLine(FILE* inputFile,char* stationName,double* stationValue)
 int main()
 {
     FILE* myFile;
-    errno_t err = fopen_s(&myFile, "D:\\Personal\\Public Repos\\BillionRows\\cTest\\x64\\Debug\\measurementsLARGE.txt", "r");
+    errno_t err = fopen_s(&myFile, "D:\\Personal\\Public Repos\\BillionRows\\cTest\\x64\\Debug\\measurements.txt", "r");
     if (myFile == NULL)
     {
         char errorMessageBuffer[100];
@@ -213,7 +213,9 @@ int main()
         printf("%f", stations[i].sum/(double)stations[i].numberOfObservations);
         printf("\n");
     }
-    printf("TOtal elapsed time was %f seconds\n", difftime(endTime,startTime));
+    printf("Total elapsed time was %f seconds\n", difftime(endTime,startTime));
+    free(stations);
+    fclose(myFile);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
